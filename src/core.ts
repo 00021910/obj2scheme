@@ -8,7 +8,6 @@ let schemeFiller = (scheme: IScheme | any, root: object) => {
         if (typeof root[key] === "object") { 
             if (root[key].length) {
                 scheme.properties[key] = { type: "array", length: root[key].length };
-                console.log(scheme.properties[key])
             } else {
                 scheme.properties[key] = { type: "object", properties: {}}
                 schemeFiller(scheme.properties[key], root[key]); 
