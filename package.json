@@ -8,10 +8,21 @@
     "compile": "tsc",
     "exec": "tsc && node dist/main.js"
   },
-  "keywords": [],
+  "keywords": [
+    "json",
+    "javascript",
+    "js",
+    "scheme",
+    "obj2scheme"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.4.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzizbekTheDev/obj2scheme.git"
+  },
+  "homepage": "https://github.com/AzizbekTheDev/obj2scheme#readme"
 }

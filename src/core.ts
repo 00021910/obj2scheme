@@ -6,9 +6,13 @@ interface IScheme {
 let schemeFiller = (scheme: IScheme | any, root: object) => {
     for (let key in root) {
         if (typeof root[key] === "object") { 
-            scheme.properties[key] = { type: "object", properties: {}}
-            schemeFiller(scheme.properties[key], root[key]); 
-            console.log(scheme.properties[key].properties);
+            if (root[key].length) {
+                scheme.properties[key] = { type: "array", length: root[key].length };
+                console.log(scheme.properties[key])
+            } else {
+                scheme.properties[key] = { type: "object", properties: {}}
+                schemeFiller(scheme.properties[key], root[key]); 
+            }
         }
         else scheme.properties[key] = { type: typeof root[key] };
     }
