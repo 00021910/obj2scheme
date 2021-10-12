@@ -19,7 +19,7 @@ let schemeFiller = (scheme: IScheme | any, root: object) => {
 
 export let obj2scheme = (jsonObj: object) => {
     let scheme: IScheme = { type: "object", properties: {} };
-    schemeFiller(scheme, jsonObj);
-    if (typeof jsonObj !== 'object') scheme = {type: "error", properties: { message: "please, pass a json object"}};
+    if (typeof jsonObj !== 'object' || JSON.stringify(jsonObj) == "{}") scheme = {type: "error", properties: { message: "please, pass a non-empty json object"}};
+    else schemeFiller(scheme, jsonObj);
     return scheme;
 }
